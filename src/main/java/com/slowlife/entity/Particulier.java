@@ -10,6 +10,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class Particulier extends User{
 
+	@Column
+	private Privilege privilege;
 	
 	//Liste des favoris
 	@ManyToMany(cascade = {CascadeType.REFRESH, CascadeType.MERGE}, fetch = FetchType.LAZY)
@@ -20,10 +22,19 @@ public class Particulier extends User{
     @JsonIgnore
     private List<Choix> choix;
 
+
+	
 	public Particulier(String password, String mail, String nom, String prenom, String rue, String ville,
-			int département) {
+			int département, Privilege privilege) {
 		super(password, mail, nom, prenom, rue, ville, département);
+		this.privilege = privilege;
 	}
+
+
+	public Particulier() {
+		super();
+	}
+
 
 	public List<Article> getArticles() {
 		return articles;
@@ -39,6 +50,16 @@ public class Particulier extends User{
 
 	public void setChoix(List<Choix> choix) {
 		this.choix = choix;
+	}
+
+
+	public Privilege getPrivilege() {
+		return privilege;
+	}
+
+
+	public void setPrivilege(Privilege privilege) {
+		this.privilege = privilege;
 	}
 	
 	

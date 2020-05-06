@@ -41,6 +41,11 @@ public class Producteur extends User{
 		this.siret = siret;
 		this.privilege = privilege;
 	}
+	
+
+	public Producteur() {
+		super();
+	}
 
 	public String getRaisonSociale() {
 		return raisonSociale;

@@ -55,6 +55,11 @@ public abstract class User {
 	}
 
 
+	public User() {
+		super();
+	}
+
+
 	public int getIdUser() {
 		return idUser;
 	}
