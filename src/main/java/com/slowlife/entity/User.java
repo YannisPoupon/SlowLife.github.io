@@ -2,55 +2,70 @@ package com.slowlife.entity;
 
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 @Entity
-@Inheritance(strategy= InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "TYPE",discriminatorType = DiscriminatorType.STRING)
-public abstract class User {
-	
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "TYPE", discriminatorType = DiscriminatorType.STRING)
+
+public class User {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="ID_USER")
+	@Column(name = "ID_USER")
 	private int idUser;
-	
+
+	@Column
+	private String login;
+
 	@Column
 	private String password;
-	
-	@Column
+
+	@Column(unique = true)
 	private String mail;
-	
+
 	@Column
 	private String nom;
-	
+
 	@Column
 	private String prenom;
-	
+
 	@Column
 	private String rue;
-	
+
 	@Column
 	private String ville;
-	
+
 	@Column
 	private int département;
 
-	@OneToMany(mappedBy = "user")
-    @JsonIgnore
-    private List<Feedback> feedbacks;
-	
-	
+	@OneToMany(mappedBy = "userDonne")
+	@JsonIgnore
+	private List<Feedback> feedbacksD;
+
+	@OneToMany(mappedBy = "userRecoit")
+	@JsonIgnore
+	private List<Feedback> feedbacksR;
+
 	public User() {
 		super();
 	}
 
-
-	public User(String password, String mail, String nom, String prenom, String rue, String ville,
+	public User(String login, String password, String mail, String nom, String prenom, String rue, String ville,
 			int département) {
 		super();
+		this.login = login;
 		this.password = password;
 		this.mail = mail;
 		this.nom = nom;
@@ -59,92 +74,93 @@ public abstract class User {
 		this.ville = ville;
 		this.département = département;
 	}
-
-
-	public User() {
-		super();
-	}
-
 
 	public int getIdUser() {
 		return idUser;
 	}
 
-
 	public void setIdUser(int idUser) {
 		this.idUser = idUser;
 	}
-
 
 	public String getPassword() {
 		return password;
 	}
 
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 
 	public String getMail() {
 		return mail;
 	}
 
-
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
-
 
 	public String getNom() {
 		return nom;
 	}
 
-
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-
 
 	public String getPrenom() {
 		return prenom;
 	}
 
-
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-
 
 	public String getRue() {
 		return rue;
 	}
 
-
 	public void setRue(String rue) {
 		this.rue = rue;
 	}
 
+	public List<Feedback> getFeedbacksD() {
+		return feedbacksD;
+	}
+
+	public void setFeedbacksD(List<Feedback> feedbacksD) {
+		this.feedbacksD = feedbacksD;
+	}
+
+	public List<Feedback> getFeedbacksR() {
+		return feedbacksR;
+	}
+
+	public void setFeedbacksR(List<Feedback> feedbacksR) {
+		this.feedbacksR = feedbacksR;
+	}
 
 	public String getVille() {
 		return ville;
 	}
 
-
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
-
 
 	public int getDépartement() {
 		return département;
 	}
 
-
 	public void setDépartement(int département) {
 		this.département = département;
 	}
-	
-	
-	
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
 }

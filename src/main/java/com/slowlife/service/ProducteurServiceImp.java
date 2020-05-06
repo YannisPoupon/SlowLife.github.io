@@ -5,12 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.slowlife.dao.ProducteurDao;
 import com.slowlife.entity.Producteur;
 @Service
 public class ProducteurServiceImp implements ProducteurService{
 
 	@Autowired
-	ProducteurService prDao;
+	ProducteurDao prDao;
 	
 	
 	@Override
@@ -21,13 +22,13 @@ public class ProducteurServiceImp implements ProducteurService{
 
 	@Override
 	public void delete(int id) {
-		prDao.delete(id);
+		prDao.deleteById(id);
 		
 	}
 
 	@Override
 	public Producteur findById(int id) {
-		return prDao.findById(id);
+		return prDao.findById(id).get();
 	}
 
 	@Override

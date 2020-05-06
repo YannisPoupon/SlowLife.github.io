@@ -4,9 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.slowlife.dao.AnnonceDao;
+
 import com.slowlife.dao.ChoixDao;
-import com.slowlife.entity.Annonce;
 import com.slowlife.entity.Choix;
 
 @Service
