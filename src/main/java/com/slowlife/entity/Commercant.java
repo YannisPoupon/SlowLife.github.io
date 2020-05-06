@@ -23,6 +23,12 @@ public class Commercant extends User{
 	@OneToMany(mappedBy = "commercant")
     @JsonIgnore
     private List<Article> articles;
+	
+	
+
+	public Commercant() {
+		super();
+	}
 
 	public Commercant(String password, String mail, String nom, String prenom, String rue, String ville,
 			int département, String raisonSociale, int siret, Privilege privilege) {

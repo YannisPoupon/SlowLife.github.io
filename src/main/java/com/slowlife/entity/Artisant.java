@@ -23,6 +23,12 @@ public class Artisant extends User{
 	@OneToMany(mappedBy = "artisant")
     @JsonIgnore
     private List<Article> articles;
+	
+	
+
+	public Artisant() {
+		super();
+	}
 
 	public Artisant(String password, String mail, String nom, String prenom, String rue, String ville,
 			int département) {
@@ -35,6 +41,17 @@ public class Artisant extends User{
 		this.raisonSociale = raisonSociale;
 		this.siret = siret;
 		
+	}
+	
+	
+
+	public Artisant(String password, String mail, String nom, String prenom, String rue, String ville, int département,
+			String raisonSociale, int siret, Privilege privilege, List<Article> articles) {
+		super(password, mail, nom, prenom, rue, ville, département);
+		this.raisonSociale = raisonSociale;
+		this.siret = siret;
+		this.privilege = privilege;
+		this.articles = articles;
 	}
 
 	public String getRaisonSociale() {
@@ -59,6 +76,14 @@ public class Artisant extends User{
 
 	public void setArticles(List<Article> articles) {
 		this.articles = articles;
+	}
+
+	public Privilege getPrivilege() {
+		return privilege;
+	}
+
+	public void setPrivilege(Privilege privilege) {
+		this.privilege = privilege;
 	}
 	
 	
