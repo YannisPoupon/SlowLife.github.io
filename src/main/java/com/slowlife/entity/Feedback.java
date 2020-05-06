@@ -4,30 +4,51 @@ import javax.persistence.*;
 
 @Entity
 public class Feedback {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idFeedback;
-	
+
 	@Column
 	private int note;
-	
+
 	@Column
 	private String commentaire;
-	
+
 	@ManyToOne
-    @JoinColumn(name = "user")
-	private User user;
+	@JoinColumn(name = "userDonne")
+	private User userDonne;
+
+	@ManyToOne
+	@JoinColumn(name = "userRecoit")
+	private User userRecoit;
 
 	public Feedback() {
 		super();
 	}
 
-	public Feedback(int note, String commentaire, User user) {
+	public Feedback(int note, String commentaire, User userDonne, User userRecoit) {
 		super();
 		this.note = note;
 		this.commentaire = commentaire;
-		this.user = user;
+		this.userDonne = userDonne;
+		this.userRecoit = userRecoit;
+	}
+
+	public User getUserDonne() {
+		return userDonne;
+	}
+
+	public void setUserDonne(User userDonne) {
+		this.userDonne = userDonne;
+	}
+
+	public User getUserRecoit() {
+		return userRecoit;
+	}
+
+	public void setUserRecoit(User userRecoit) {
+		this.userRecoit = userRecoit;
 	}
 
 	public int getIdFeedback() {
@@ -54,14 +75,4 @@ public class Feedback {
 		this.commentaire = commentaire;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-	
-	
 }
-

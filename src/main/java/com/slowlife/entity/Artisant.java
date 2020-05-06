@@ -9,49 +9,36 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Artisant extends User{
+public class Artisant extends User {
 
 	@Column
 	private String raisonSociale;
-	
+
 	@Column
 	private int siret;
-	
+
 	@Column
 	private Privilege privilege;
-	
+
 	@OneToMany(mappedBy = "artisant")
-    @JsonIgnore
-    private List<Article> articles;
-	
-	
+	@JsonIgnore
+	private List<Article> articles;
 
 	public Artisant() {
 		super();
 	}
 
-	public Artisant(String password, String mail, String nom, String prenom, String rue, String ville,
+	public Artisant(String login, String password, String mail, String nom, String prenom, String rue, String ville,
 			int département) {
-		super(password, mail, nom, prenom, rue, ville, département);
+		super(login, password, mail, nom, prenom, rue, ville, département);
 	}
 
-	public Artisant(String password, String mail, String nom, String prenom, String rue, String ville, int département,
-			String raisonSociale, int siret) {
-		super(password, mail, nom, prenom, rue, ville, département);
-		this.raisonSociale = raisonSociale;
-		this.siret = siret;
-		
-	}
-	
-	
-
-	public Artisant(String password, String mail, String nom, String prenom, String rue, String ville, int département,
-			String raisonSociale, int siret, Privilege privilege, List<Article> articles) {
-		super(password, mail, nom, prenom, rue, ville, département);
+	public Artisant(String login, String password, String mail, String nom, String prenom, String rue, String ville,
+			int département, String raisonSociale, int siret, Privilege privilege) {
+		super(login, password, mail, nom, prenom, rue, ville, département);
 		this.raisonSociale = raisonSociale;
 		this.siret = siret;
 		this.privilege = privilege;
-		this.articles = articles;
 	}
 
 	public String getRaisonSociale() {
@@ -85,7 +72,5 @@ public class Artisant extends User{
 	public void setPrivilege(Privilege privilege) {
 		this.privilege = privilege;
 	}
-	
-	
-	
+
 }

@@ -23,12 +23,12 @@ public class AdminController {
 		 aServ.save(admin);
 	}
 	
-	@RequestMapping(value="/admins", method=RequestMethod.GET)
+	@RequestMapping(value="/Admins", method=RequestMethod.GET)
 	public List<Admin> getAdmins() {
 		 return aServ.findAll();
 	}
 	
-	@RequestMapping(value="/admin/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/Admin/{id}", method=RequestMethod.GET)
 	public Admin getAdminById(@PathVariable int id) {
 		 return aServ.findById(id);
 	}

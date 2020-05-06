@@ -9,10 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.slowlife.entity.Admin;
-import com.slowlife.entity.Annonce;
 import com.slowlife.entity.Choix;
-import com.slowlife.service.AnnonceService;
 import com.slowlife.service.ChoixService;
 
 @RestController
@@ -26,12 +23,12 @@ public class ChoixController {
 		cServ.save(choix);
 	}
 	
-	@RequestMapping(value="/choix", method=RequestMethod.GET)
+	@RequestMapping(value="/Choix", method=RequestMethod.GET)
 	public List<Choix> getChoix() {
 		 return cServ.findAll();
 	}
 	
-	@RequestMapping(value="/choix/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/Choix/{id}", method=RequestMethod.GET)
 	public Choix getAnnonceById(@PathVariable int id) {
 		 return cServ.findById(id);
 	}

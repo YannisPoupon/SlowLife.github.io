@@ -9,40 +9,39 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Commercant extends User{
-	
+public class Commercant extends User {
+
 	@Column
 	private String raisonSociale;
-	
+
 	@Column
 	private int siret;
-	
+
 	@Column
 	private Privilege privilege;
-	
+
 	@OneToMany(mappedBy = "commercant")
-    @JsonIgnore
-    private List<Article> articles;
-	
-	
+	@JsonIgnore
+	private List<Article> articles;
 
 	public Commercant() {
 		super();
 	}
 
-	public Commercant(String password, String mail, String nom, String prenom, String rue, String ville,
+	public Commercant(String login, String password, String mail, String nom, String prenom, String rue, String ville,
 			int département, String raisonSociale, int siret, Privilege privilege) {
-		super(password, mail, nom, prenom, rue, ville, département);
+		super(login, password, mail, nom, prenom, rue, ville, département);
 		this.raisonSociale = raisonSociale;
 		this.siret = siret;
 		this.privilege = privilege;
-		
 	}
 
-	public Commercant(String password, String mail, String nom, String prenom, String rue, String ville,
+	public Commercant(String login, String password, String mail, String nom, String prenom, String rue, String ville,
 			int département) {
-		super(password, mail, nom, prenom, rue, ville, département);
+		super(login, password, mail, nom, prenom, rue, ville, département);
 	}
+	
+	
 
 	public String getRaisonSociale() {
 		return raisonSociale;
@@ -50,14 +49,6 @@ public class Commercant extends User{
 
 	public void setRaisonSociale(String raisonSociale) {
 		this.raisonSociale = raisonSociale;
-	}
-
-	public int getSiret() {
-		return siret;
-	}
-
-	public void setSiret(int siret) {
-		this.siret = siret;
 	}
 
 	public Privilege getPrivilege() {
@@ -68,6 +59,14 @@ public class Commercant extends User{
 		this.privilege = privilege;
 	}
 
+	public int getSiret() {
+		return siret;
+	}
+
+	public void setSiret(int siret) {
+		this.siret = siret;
+	}
+
 	public List<Article> getArticles() {
 		return articles;
 	}
@@ -75,6 +74,5 @@ public class Commercant extends User{
 	public void setArticles(List<Article> articles) {
 		this.articles = articles;
 	}
-	
-	
+
 }

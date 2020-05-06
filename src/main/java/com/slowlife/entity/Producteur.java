@@ -9,39 +9,37 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Producteur extends User{
-	
+public class Producteur extends User {
+
 	@Column
 	private String raisonSociale;
-	
+
 	@Column
 	private int siret;
-	
+
 	@Column
 	private Privilege privilege;
-	
-	
-	@OneToMany(mappedBy = "producteur")
-    @JsonIgnore
-    private List<Annonce> annonces;
-	
-	@OneToMany(mappedBy = "producteur")
-    @JsonIgnore
-    private List<Article> articles;
 
-	public Producteur(String password, String mail, String nom, String prenom, String rue, String ville,
-			int département) {
-		super(password, mail, nom, prenom, rue, ville, département);
-	}
+	@OneToMany(mappedBy = "producteur")
+	@JsonIgnore
+	private List<Annonce> annonces;
 
-	public Producteur(String password, String mail, String nom, String prenom, String rue, String ville,
+	@OneToMany(mappedBy = "producteur")
+	@JsonIgnore
+	private List<Article> articles;
+
+	public Producteur(String login, String password, String mail, String nom, String prenom, String rue, String ville,
 			int département, String raisonSociale, int siret, Privilege privilege) {
-		super(password, mail, nom, prenom, rue, ville, département);
+		super(login, password, mail, nom, prenom, rue, ville, département);
 		this.raisonSociale = raisonSociale;
 		this.siret = siret;
 		this.privilege = privilege;
 	}
-	
+
+	public Producteur(String login, String password, String mail, String nom, String prenom, String rue, String ville,
+			int département) {
+		super(login, password, mail, nom, prenom, rue, ville, département);
+	}
 
 	public Producteur() {
 		super();
@@ -86,6 +84,5 @@ public class Producteur extends User{
 	public void setArticles(List<Article> articles) {
 		this.articles = articles;
 	}
-	
-	
+
 }
