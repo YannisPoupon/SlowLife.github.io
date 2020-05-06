@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class Annonce {
 	
@@ -14,9 +16,11 @@ public class Annonce {
 	@Column(name="ID_ANNONCE")
 	private int idAnnonce;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column
 	private Date dateDebut;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column
 	private Date dateFin;
 	

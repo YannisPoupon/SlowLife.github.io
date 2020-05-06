@@ -4,29 +4,28 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.slowlife.dao.AdminDao;
-import com.slowlife.entity.Admin;
+import com.slowlife.dao.AnnonceDao;
+import com.slowlife.entity.Annonce;
 
 @Service
-public class AdminServiceImp implements AdminService{
+public class AnnonceServiceImp implements AnnonceService{
 	
 	@Autowired
-	AdminDao aDao;
+	AnnonceDao aDao;
 
 
 	@Override
-	public void save(Admin admin) {
-		aDao.save(admin);
+	public void save(Annonce annonce) {
+		aDao.save(annonce);
 	}
 
 	@Override
-	public Admin findById(int id) {
+	public Annonce findById(int id) {
 		return aDao.findById(id).get();
 	}
 
 	@Override
-	public List<Admin> findAll() {
+	public List<Annonce> findAll() {
 		return aDao.findAll();
 	}
 
