@@ -43,7 +43,6 @@ public abstract class User {
     private List<Feedback> feedbacks;
 	
 	
-	
 	public User() {
 		super();
 	}
