@@ -42,6 +42,12 @@ public abstract class User {
     @JsonIgnore
     private List<Feedback> feedbacks;
 	
+	
+	public User() {
+		super();
+	}
+
+
 	public User(String password, String mail, String nom, String prenom, String rue, String ville,
 			int département) {
 		super();
