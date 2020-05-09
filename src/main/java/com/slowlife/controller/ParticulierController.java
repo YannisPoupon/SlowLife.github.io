@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.slowlife.entity.Particulier;
 import com.slowlife.service.ParticulierService;
-
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class ParticulierController {
