@@ -10,42 +10,47 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Annonce {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="ID_ANNONCE")
+	@Column(name = "ID_ANNONCE")
 	private int idAnnonce;
-	
+
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column
 	private Date dateDebut;
-	
+
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column
 	private Date dateFin;
-	
+
+	@Column
+	private TypeAnnonce typeannonce;
+
 	@Column
 	private int nombrePlace;
-	
+
 	@Column
 	private String compensation;
-	
+
 	@ManyToOne
-    @JoinColumn(name = "producteur")
+	@JoinColumn(name = "producteur")
 	private Producteur producteur;
-	
-	@ManyToMany(cascade = {CascadeType.REFRESH, CascadeType.MERGE}, fetch = FetchType.LAZY)
-    @JoinTable(name = "ANNONCE_PARTICULIER", joinColumns = @JoinColumn(name = "FK_ANNONCE", referencedColumnName = "ID_ANNONCE"), inverseJoinColumns = @JoinColumn(name = "FK_USER", referencedColumnName = "ID_USER"))
-    private List<Particulier> particuliers = new ArrayList<>();
+
+	@ManyToMany(cascade = { CascadeType.REFRESH, CascadeType.MERGE }, fetch = FetchType.LAZY)
+	@JoinTable(name = "ANNONCE_PARTICULIER", joinColumns = @JoinColumn(name = "FK_ANNONCE", referencedColumnName = "ID_ANNONCE"), inverseJoinColumns = @JoinColumn(name = "FK_USER", referencedColumnName = "ID_USER"))
+	private List<Particulier> particuliers = new ArrayList<>();
 
 	public Annonce() {
 		super();
 	}
 
-	public Annonce(Date dateDebut, Date dateFin, int nombrePlace, String compensation, Producteur producteur) {
+	public Annonce(Date dateDebut, Date dateFin, TypeAnnonce typeannonce, int nombrePlace, String compensation,
+			Producteur producteur) {
 		super();
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
+		this.typeannonce = typeannonce;
 		this.nombrePlace = nombrePlace;
 		this.compensation = compensation;
 		this.producteur = producteur;
@@ -106,6 +111,5 @@ public class Annonce {
 	public void setParticuliers(List<Particulier> particuliers) {
 		this.particuliers = particuliers;
 	}
-	
-	
+
 }
