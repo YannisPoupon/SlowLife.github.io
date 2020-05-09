@@ -10,5 +10,6 @@ public interface ArticleService {
 	public void delete(int id);
 	public List<Article> findAll();
 	public Article findById(int id);
+	public List<Article> findByNom(String nom);
 
 }

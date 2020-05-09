@@ -1,3 +1,6 @@
+
+
+
 package com.slowlife.controller;
 
 import java.util.List;
@@ -40,6 +43,11 @@ public class ArticleController {
 	@GetMapping(value="/Article/{id}")
 	public Article findById(@PathVariable int id)  {
 		return aServ.findById(id); 
+	}
+	
+	@RequestMapping(value="/getArticlesByNom/{nom}",method = RequestMethod.GET)
+	public List<Article> findByNom(@PathVariable String nom)  {
+		return aServ.findByNom(nom); 
 	}
 	
 }
