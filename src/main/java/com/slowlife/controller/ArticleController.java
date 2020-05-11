@@ -45,9 +45,9 @@ public class ArticleController {
 		return aServ.findById(id); 
 	}
 	
-	@RequestMapping(value="/getArticlesByNom/{nom}",method = RequestMethod.GET)
-	public List<Article> findByNom(@PathVariable String nom)  {
-		return aServ.findByNom(nom); 
+	@RequestMapping(value="/findArticles/{nom}/{ville}",method = RequestMethod.GET)
+	public List<Article> findByNom(@PathVariable String nom, @PathVariable String ville)  {
+		return aServ.findByNomAndVille(nom, ville);
 	}
 	
 }

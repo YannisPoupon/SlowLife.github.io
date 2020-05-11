@@ -11,5 +11,6 @@ public interface ArticleService {
 	public List<Article> findAll();
 	public Article findById(int id);
 	public List<Article> findByNom(String nom);
+	public List<Article> findByNomAndVille(String nom,String ville);
 
 }
