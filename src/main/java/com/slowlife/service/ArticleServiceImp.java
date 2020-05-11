@@ -41,4 +41,9 @@ public class ArticleServiceImp implements ArticleService{
 		return adao.findByNom(nom);
 	}
 
+	@Override
+	public List<Article> findByNomAndVille(String nom, String ville) {
+		return adao.findByNomAndVille(nom, ville);
+	}
+
 }
