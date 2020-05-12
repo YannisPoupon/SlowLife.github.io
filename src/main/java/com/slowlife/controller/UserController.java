@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.slowlife.entity.Producteur;
 import com.slowlife.entity.User;
 import com.slowlife.service.UserService;
 
@@ -29,5 +30,6 @@ public class UserController {
     public User findById(@PathVariable int id)  {
         return uServ.findById(id); 
     }
+
 
 }
