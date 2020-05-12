@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.slowlife.entity.Annonce;
+import com.slowlife.entity.Article;
+import com.slowlife.entity.Producteur;
 import com.slowlife.service.AnnonceService;
 
 @RestController
@@ -36,5 +38,9 @@ public class AnnonceController {
 	@RequestMapping(value="/delAnnonce/{id}", method=RequestMethod.DELETE)
 	public void deleteAnnonce(@PathVariable int id) {
 		 aServ.delete(id);
+	}
+	@RequestMapping(value="/findannoncebyprod",method = RequestMethod.POST)
+	public List<Annonce> findByProducteur(@RequestBody Producteur p)  {
+		return aServ.findByProducteur(p);
 	}
 }

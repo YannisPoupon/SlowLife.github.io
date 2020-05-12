@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.slowlife.dao.AnnonceDao;
 import com.slowlife.entity.Annonce;
+import com.slowlife.entity.Producteur;
 
 @Service
 public class AnnonceServiceImp implements AnnonceService{
@@ -33,6 +34,12 @@ public class AnnonceServiceImp implements AnnonceService{
 	public void delete(int id) {
 		aDao.deleteById(id);
 		
+	}
+
+	@Override
+	public List<Annonce> findByProducteur(Producteur p) {
+		// TODO Auto-generated method stub
+		return aDao.findByProducteur(p);
 	}
 	
 	

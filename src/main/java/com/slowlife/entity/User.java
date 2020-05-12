@@ -48,7 +48,7 @@ public class User {
 	private String ville;
 
 	@Column
-	private int département;
+	private int departement;
 
 	@OneToMany(mappedBy = "userDonne")
 	@JsonIgnore
@@ -63,7 +63,7 @@ public class User {
 	}
 
 	public User(String login, String password, String mail, String nom, String prenom, String rue, String ville,
-			int département) {
+			int departement) {
 		super();
 		this.login = login;
 		this.password = password;
@@ -72,7 +72,7 @@ public class User {
 		this.prenom = prenom;
 		this.rue = rue;
 		this.ville = ville;
-		this.département = département;
+		this.departement = departement;
 	}
 
 	public int getIdUser() {
@@ -147,12 +147,12 @@ public class User {
 		this.ville = ville;
 	}
 
-	public int getDépartement() {
-		return département;
+	public int getDepartement() {
+		return departement;
 	}
 
-	public void setDépartement(int département) {
-		this.département = département;
+	public void setDepartement(int departement) {
+		this.departement = departement;
 	}
 
 	public String getLogin() {
