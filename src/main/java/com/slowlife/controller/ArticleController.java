@@ -3,6 +3,7 @@
 
 package com.slowlife.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.slowlife.entity.Article;
+import com.slowlife.entity.FruitsLegumes;
 import com.slowlife.service.ArticleService;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -48,6 +50,15 @@ public class ArticleController {
 	@RequestMapping(value="/findArticles/{nom}/{ville}",method = RequestMethod.GET)
 	public List<Article> findByNom(@PathVariable String nom, @PathVariable String ville)  {
 		return aServ.findByNomAndVille(nom, ville);
+	}
+	
+	@RequestMapping(value="/getFruitsLegumEnum",method = RequestMethod.GET)
+	public List<String> getFruitsLegumEnum()  {
+		List<String> ListesFruitsLegumes = new ArrayList<String>();
+		for(FruitsLegumes f:FruitsLegumes.values()) {
+			ListesFruitsLegumes.add(String.join(" ", f.toString().split("XX", 4)));
+		}
+		return ListesFruitsLegumes;
 	}
 	
 }
