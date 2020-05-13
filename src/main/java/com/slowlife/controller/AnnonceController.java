@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.slowlife.entity.Annonce;
-import com.slowlife.entity.Article;
 import com.slowlife.entity.Producteur;
 import com.slowlife.service.AnnonceService;
 @CrossOrigin(origins = "http://localhost:4200")

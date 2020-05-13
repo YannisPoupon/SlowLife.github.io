@@ -40,6 +40,9 @@ public class User {
 
 	@Column
 	private String prenom;
+	
+	@Column
+	private int numero;
 
 	@Column
 	private String rue;
@@ -49,6 +52,12 @@ public class User {
 
 	@Column
 	private int departement;
+	
+	@Column
+	private double longitude;
+	
+	@Column
+	private double latitude;
 
 	@OneToMany(mappedBy = "userDonne")
 	@JsonIgnore
@@ -62,18 +71,61 @@ public class User {
 		super();
 	}
 
-	public User(String login, String password, String mail, String nom, String prenom, String rue, String ville,
-			int departement) {
+
+	public User(int idUser, String login, String password, String mail, String nom, String prenom, int numero,
+			String rue, String ville, int departement, double longitude, double latitude) {
 		super();
+		this.idUser = idUser;
 		this.login = login;
 		this.password = password;
 		this.mail = mail;
 		this.nom = nom;
 		this.prenom = prenom;
+		this.numero = numero;
 		this.rue = rue;
 		this.ville = ville;
 		this.departement = departement;
+		this.longitude = longitude;
+		this.latitude = latitude;
 	}
+
+
+
+	public int getNumero() {
+		return numero;
+	}
+
+
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+
+
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
+
+
+
+	public double getLatitude() {
+		return latitude;
+	}
+
+
+
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
+
+
 
 	public int getIdUser() {
 		return idUser;

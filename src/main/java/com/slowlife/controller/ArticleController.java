@@ -20,9 +20,7 @@ import com.slowlife.entity.Article;
 import com.slowlife.entity.FruitsLegumes; 
 import com.slowlife.entity.Artisant;
 import com.slowlife.entity.Commercant;
-import com.slowlife.entity.Particulier;
 import com.slowlife.entity.Producteur;
-import com.slowlife.entity.User;
 import com.slowlife.service.ArticleService;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -79,5 +77,6 @@ public class ArticleController {
 	public List<Article> findByCommercant(@RequestBody Commercant c)  {
 		return aServ.findByCommercant(c);
 	}
+	
 	
 }

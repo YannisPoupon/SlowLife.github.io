@@ -9,9 +9,7 @@ import com.slowlife.dao.ArticleDao;
 import com.slowlife.entity.Article;
 import com.slowlife.entity.Artisant;
 import com.slowlife.entity.Commercant;
-import com.slowlife.entity.Particulier;
 import com.slowlife.entity.Producteur;
-import com.slowlife.entity.User;
 
 @Service
 public class ArticleServiceImp implements ArticleService{
@@ -66,6 +64,13 @@ public class ArticleServiceImp implements ArticleService{
 	public List<Article> findByCommercant(Commercant c) {
 		// TODO Auto-generated method stub
 		return adao.findByCommercant(c);
+	}
+
+	@Override
+	public void achatArticle(int idArticle, int qtitePrise) {
+		Article a = this.findById(idArticle);
+		a.setQuantiteDisponible(a.getQuantiteDisponible()-qtitePrise);
+		this.save(a);
 	}
 
 	

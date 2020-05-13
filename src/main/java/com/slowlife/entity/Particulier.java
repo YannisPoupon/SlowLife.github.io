@@ -22,20 +22,21 @@ public class Particulier extends User {
 	@JsonIgnore
 	private List<Choix> choix;
 
-	public Particulier(String login, String password, String mail, String nom, String prenom, String rue, String ville,
-			int département, Privilege privilege) {
-		super(login, password, mail, nom, prenom, rue, ville, département);
+
+
+	public Particulier(int idUser, String login, String password, String mail, String nom, String prenom, int numero,
+			String rue, String ville, int departement, double longitude, double latitude) {
+		super(idUser, login, password, mail, nom, prenom, numero, rue, ville, departement, longitude, latitude);
+	}
+
+	public Particulier(int idUser, String login, String password, String mail, String nom, String prenom, int numero,
+			String rue, String ville, int departement, double longitude, double latitude, Privilege privilege,
+			List<Article> articles, List<Choix> choix) {
+		super(idUser, login, password, mail, nom, prenom, numero, rue, ville, departement, longitude, latitude);
 		this.privilege = privilege;
+		this.articles = articles;
+		this.choix = choix;
 	}
-	
-	
-
-	public Particulier(String login, String password, String mail, String nom, String prenom, String rue, String ville,
-			int département) {
-		super(login, password, mail, nom, prenom, rue, ville, département);
-	}
-
-
 
 	public Particulier() {
 		super();
