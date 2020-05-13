@@ -64,6 +64,7 @@ public class ArticleController {
 		}
 		return ListesFruitsLegumes;
 	}
+	
 	@RequestMapping(value="/findarticlebyprod",method = RequestMethod.POST)
 	public List<Article> findByProducteur(@RequestBody Producteur p)  {
 		return aServ.findByProducteur(p);
