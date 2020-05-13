@@ -2,9 +2,7 @@ package com.slowlife.entity;
 
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.*;
-import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

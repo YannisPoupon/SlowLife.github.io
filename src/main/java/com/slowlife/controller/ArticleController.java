@@ -65,6 +65,8 @@ public class ArticleController {
 			ListesFruitsLegumes.add(String.join(" ", f.toString().split("XX", 4)));
 		}
 		return ListesFruitsLegumes;
+	}
+	
 	@RequestMapping(value="/findarticlebyprod",method = RequestMethod.POST)
 	public List<Article> findByProducteur(@RequestBody Producteur p)  {
 		return aServ.findByProducteur(p);
