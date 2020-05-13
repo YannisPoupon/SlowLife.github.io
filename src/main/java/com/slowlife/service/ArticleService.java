@@ -5,9 +5,7 @@ import java.util.List;
 import com.slowlife.entity.Article;
 import com.slowlife.entity.Artisant;
 import com.slowlife.entity.Commercant;
-import com.slowlife.entity.Particulier;
 import com.slowlife.entity.Producteur;
-import com.slowlife.entity.User;
 
 public interface ArticleService {
 	
@@ -21,5 +19,6 @@ public interface ArticleService {
 	public List<Article> findByProducteur(Producteur p);
 	public List<Article> findByArtisant(Artisant a);
 	public List<Article> findByCommercant(Commercant c);
+	public void achatArticle(int idArticle, int qtitePrise);
 
 }
