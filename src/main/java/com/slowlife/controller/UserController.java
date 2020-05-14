@@ -1,5 +1,7 @@
 package com.slowlife.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.slowlife.entity.Admin;
 import com.slowlife.entity.User;
 import com.slowlife.service.EmailServiceImpl;
 import com.slowlife.service.UserService;
@@ -52,5 +56,13 @@ public class UserController {
         return uServ.findById(id); 
     }
 
-
+	@GetMapping(value="/users")
+    public List<User> getall()  {
+        return uServ.findAll();
+    }
+	
+	@RequestMapping(value="/updateUser", method=RequestMethod.POST)
+	public void saveUser(@RequestBody User u) {
+		 uServ.updateUser(u);
+	}
 }
