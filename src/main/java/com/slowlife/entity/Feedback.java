@@ -28,7 +28,6 @@ public class Feedback {
 	private User userRecoit;
 	
 
-
 	public Feedback() {
 		super();
 	}

@@ -33,7 +33,7 @@ public class Article {
 	@Column
 	private int quantiteDisponible;
 	
-	@ManyToOne()
+	@ManyToOne
     @JoinColumn(name = "artisant")
 	private Artisant artisant;
 	

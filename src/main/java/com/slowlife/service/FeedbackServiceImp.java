@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.slowlife.dao.FeedbackDao;
+import com.slowlife.entity.Artisant;
+import com.slowlife.entity.Commercant;
 import com.slowlife.entity.Feedback;
+import com.slowlife.entity.Producteur;
 @Service
 public class FeedbackServiceImp implements FeedbackService{
 
@@ -33,5 +36,7 @@ public class FeedbackServiceImp implements FeedbackService{
 	public List<Feedback> findAll() {
 		return fDao.findAll();
 	}
+
+
 
 }
