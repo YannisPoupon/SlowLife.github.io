@@ -11,7 +11,8 @@ public interface UserService {
 	public User verif(String login, String pass);
 	public User findById(int id);
 	public User recup(String mail);
-	public List<User> findAll();
+	public List<User> findUsers();
 	public void updateUser(User u);
+	public void deleteById(int id);
 
 }
