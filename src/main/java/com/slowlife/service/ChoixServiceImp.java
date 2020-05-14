@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.slowlife.dao.ArticleDao;
 import com.slowlife.dao.ChoixDao;
 import com.slowlife.entity.Choix;
+import com.slowlife.entity.Particulier;
+import com.slowlife.entity.User;
 
 @Service
 public class ChoixServiceImp implements ChoixService{
@@ -37,6 +39,14 @@ public class ChoixServiceImp implements ChoixService{
 		cDao.deleteById(id);
 		
 	}
+
+	@Override
+	public List<Choix> findByParticulier(Particulier p) {
+		// TODO Auto-generated method stub
+		return cDao.findByParticulier(p);
+	}
+
+		
 	
 	
 

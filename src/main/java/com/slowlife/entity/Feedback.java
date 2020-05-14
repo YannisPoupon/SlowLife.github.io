@@ -16,24 +16,48 @@ public class Feedback {
 	private String commentaire;
 
 	@ManyToOne
+	@JoinColumn(name="choix")
+	private Choix choix;
+	
+	@ManyToOne
 	@JoinColumn(name = "userDonne")
 	private User userDonne;
 
 	@ManyToOne
 	@JoinColumn(name = "userRecoit")
 	private User userRecoit;
+	
+
 
 	public Feedback() {
 		super();
 	}
 
-	public Feedback(int note, String commentaire, User userDonne, User userRecoit) {
+
+
+	public Feedback(int idFeedback, int note, String commentaire, Choix choix, User userDonne, User userRecoit) {
 		super();
+		this.idFeedback = idFeedback;
 		this.note = note;
 		this.commentaire = commentaire;
+		this.choix = choix;
 		this.userDonne = userDonne;
 		this.userRecoit = userRecoit;
 	}
+
+
+
+	public Choix getChoix() {
+		return choix;
+	}
+
+
+
+	public void setChoix(Choix choix) {
+		this.choix = choix;
+	}
+
+
 
 	public User getUserDonne() {
 		return userDonne;

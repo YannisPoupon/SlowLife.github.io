@@ -23,8 +23,9 @@ public class FeedbackController {
 	FeedbackService fes;
 	
 	@RequestMapping(value="/addFeedback", method=RequestMethod.POST)
-	public void save(@RequestBody Feedback f) { 
-		fes.save(f);	
+	public Feedback save(@RequestBody Feedback f) { 
+		return fes.save(f);	
+		
 	}
 	
 	@DeleteMapping(value="/delFeedback/{id}")
