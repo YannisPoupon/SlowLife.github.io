@@ -52,8 +52,17 @@ public class ArticleController {
 	}
 	
 	@RequestMapping(value="/findArticles/{nom}/{ville}",method = RequestMethod.GET)
-	public List<Article> findByNom(@PathVariable String nom, @PathVariable String ville)  {
-		return aServ.findByNomAndVille(nom, ville);
+	public List<Article> findProdByNom(@PathVariable String nom, @PathVariable String ville)  {
+		List<Article> listArticlesProd = aServ.findProdByNomAndVille(nom, ville);
+		List<Article> listArticlesArt = aServ.findArtByNomAndVille(nom, ville);
+		List<Article> listArticlesCom = aServ.findComByNomAndVille(nom, ville);
+		List<Article> listArticles =  new ArrayList<Article>();
+		listArticles.addAll(listArticlesProd);
+		listArticles.addAll(listArticlesArt);
+		listArticles.addAll(listArticlesCom);
+		
+		
+		return listArticles;
 	}
 	
 

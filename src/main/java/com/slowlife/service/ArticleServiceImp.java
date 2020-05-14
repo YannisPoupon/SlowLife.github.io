@@ -45,10 +45,20 @@ public class ArticleServiceImp implements ArticleService{
 	}
 
 	@Override
-	public List<Article> findByNomAndVille(String nom, String ville) {
-		return adao.findByNomAndVille(nom, ville);
+	public List<Article> findProdByNomAndVille(String nom, String ville) {
+		return adao.findProdByNomAndVille(nom, ville);
 	}
 
+	@Override
+	public List<Article> findArtByNomAndVille(String nom, String ville) {
+		return adao.findArtByNomAndVille(nom, ville);
+	}
+
+	@Override
+	public List<Article> findComByNomAndVille(String nom, String ville) {
+		return adao.findComByNomAndVille(nom, ville);
+	}
+	
 	@Override
 	public List<Article> findByProducteur(Producteur p) {
 		return adao.findByProducteur(p);
@@ -72,6 +82,8 @@ public class ArticleServiceImp implements ArticleService{
 		a.setQuantiteDisponible(a.getQuantiteDisponible()-qtitePrise);
 		this.save(a);
 	}
+
+	
 
 	
 }
