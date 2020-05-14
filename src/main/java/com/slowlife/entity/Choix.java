@@ -1,10 +1,13 @@
 package com.slowlife.entity;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Choix {
@@ -28,6 +31,10 @@ public class Choix {
     @JoinColumn(name = "article")
 	private Article article;
 
+	@OneToMany(mappedBy = "choix")
+	@JsonIgnore
+	private List<Feedback> feedbacks;
+	
 	public Choix() {
 		super();
 	}

@@ -14,8 +14,8 @@ public class FeedbackServiceImp implements FeedbackService{
 	FeedbackDao fDao;
 	
 	@Override
-	public void save(Feedback feedback) {
-		fDao.save(feedback);
+	public Feedback save(Feedback feedback) {
+		return fDao.save(feedback);
 	}
 
 	@Override
