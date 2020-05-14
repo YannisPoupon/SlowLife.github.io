@@ -39,4 +39,10 @@ public class UserServiceImp implements UserService {
 		return udao.findById(id).get();
 	}
 
+	@Override
+	public User recup(String mail) {
+		
+		return udao.findByMail(mail);
+	}
+
 }
