@@ -89,5 +89,6 @@ public class Producteur extends User {
 	public void setArticles(List<Article> articles) {
 		this.articles = articles;
 	}
-
+	
+	
 }

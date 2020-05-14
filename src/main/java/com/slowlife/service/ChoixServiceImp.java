@@ -18,8 +18,8 @@ public class ChoixServiceImp implements ChoixService{
 	
 
 	@Override
-	public void save(Choix choix) {
-		cDao.save(choix);
+	public Choix save(Choix choix) {
+		return cDao.save(choix);
 	}
 
 	@Override

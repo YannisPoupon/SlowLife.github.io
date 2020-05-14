@@ -79,6 +79,12 @@ public class Choix {
 	public void setArticle(Article article) {
 		this.article = article;
 	}
+
+	@Override
+	public String toString() {
+		return "Choix [idChoix=" + idChoix + ", quantite=" + quantite + ", dateAchat=" + dateAchat + ", particulier="
+				+ particulier + ", article=" + article + "]";
+	}
 	
 	
 }
