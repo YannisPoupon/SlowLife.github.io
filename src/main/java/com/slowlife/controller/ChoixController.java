@@ -9,7 +9,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.slowlife.entity.Article;
 import com.slowlife.entity.Choix;
+import com.slowlife.entity.Commercant;
+import com.slowlife.entity.Particulier;
+import com.slowlife.entity.Producteur;
+import com.slowlife.entity.User;
 import com.slowlife.service.ArticleService;
 import com.slowlife.service.ChoixService;
 import com.slowlife.service.EmailServiceImpl;
@@ -75,4 +81,10 @@ public class ChoixController {
 	public void sendmail(@PathVariable String to, @PathVariable String subject, @PathVariable String text)  {
 		es.sendSimpleMessage(to, subject, text);
 	}
+	@RequestMapping(value="/findByPart",method = RequestMethod.POST)
+	public List<Choix> findByParticulier(@RequestBody Particulier p)  {
+		return cServ.findByParticulier(p);
+	}
+	
+
 }

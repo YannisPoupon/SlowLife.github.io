@@ -25,7 +25,7 @@ public class Annonce {
 	private Date dateFin;
 
 	@Column
-	private TypeAnnonce typeannonce;
+	private String typeannonce;
 
 	@Column
 	private int nombrePlace;
@@ -45,7 +45,7 @@ public class Annonce {
 		super();
 	}
 
-	public Annonce(Date dateDebut, Date dateFin, TypeAnnonce typeannonce, int nombrePlace, String compensation,
+	public Annonce(Date dateDebut, Date dateFin, String typeannonce, int nombrePlace, String compensation,
 			Producteur producteur) {
 		super();
 		this.dateDebut = dateDebut;
@@ -107,9 +107,25 @@ public class Annonce {
 	public List<Particulier> getParticuliers() {
 		return particuliers;
 	}
+	
+	
+	public String getTypeannonce() {
+		return typeannonce;
+	}
+
+	public void setTypeannonce(String typeannonce) {
+		this.typeannonce = typeannonce;
+	}
 
 	public void setParticuliers(List<Particulier> particuliers) {
 		this.particuliers = particuliers;
+	}
+
+	@Override
+	public String toString() {
+		return "Annonce [idAnnonce=" + idAnnonce + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin
+				+ ", typeannonce=" + typeannonce + ", nombrePlace=" + nombrePlace + ", compensation=" + compensation
+				+ ", producteur=" + producteur + ", particuliers=" + particuliers + "]";
 	}
 
 }
