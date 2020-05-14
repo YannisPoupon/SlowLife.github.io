@@ -137,6 +137,13 @@ public class Article {
 	public void setChoix(List<Choix> choix) {
 		this.choix = choix;
 	}
+
+	@Override
+	public String toString() {
+		return "Article [idArticle=" + idArticle + ", nom=" + nom + ", typearticle=" + typearticle + ", prix=" + prix
+				+ ", quantiteDisponible=" + quantiteDisponible + ", artisant=" + artisant + ", producteur=" + producteur
+				+ ", commercant=" + commercant + ", choix=" + choix + "]";
+	}
 	
 	
 }

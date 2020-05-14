@@ -30,6 +30,7 @@ public class ArticleController {
 	@Autowired
 	ArticleService aServ;
 	
+	
 	@RequestMapping(value="/addArticle", method = RequestMethod.POST )
 	public void add(@RequestBody Article a) {
 		aServ.save(a);
@@ -77,6 +78,7 @@ public class ArticleController {
 	public List<Article> findByCommercant(@RequestBody Commercant c)  {
 		return aServ.findByCommercant(c);
 	}
+	
 	
 	
 }
