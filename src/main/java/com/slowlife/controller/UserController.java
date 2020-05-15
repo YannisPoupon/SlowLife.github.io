@@ -61,7 +61,7 @@ public class UserController {
         return uServ.findUsers();
     }
 	
-	@RequestMapping(value="/updateUser", method=RequestMethod.POST)
+	@RequestMapping(value="/updateUser", method=RequestMethod.PUT)
 	public void saveUser(@RequestBody User u) {
 		 uServ.updateUser(u);
 	}
