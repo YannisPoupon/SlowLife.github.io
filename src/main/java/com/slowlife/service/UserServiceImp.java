@@ -48,7 +48,7 @@ public class UserServiceImp implements UserService {
 	}
 
 	@Override
-	public List<User> findAll() {
+	public List<User> findUsers() {
 		// TODO Auto-generated method stub
 		return udao.findAll();
 	}
@@ -57,6 +57,12 @@ public class UserServiceImp implements UserService {
 	public void updateUser(User u) {
 		// TODO Auto-generated method stub
 		udao.save(u);
+		
+	}
+
+	@Override
+	public void deleteById(int id) {
+		udao.deleteById(id);
 		
 	}
 

@@ -58,11 +58,16 @@ public class UserController {
 
 	@GetMapping(value="/users")
     public List<User> getall()  {
-        return uServ.findAll();
+        return uServ.findUsers();
     }
 	
 	@RequestMapping(value="/updateUser", method=RequestMethod.POST)
 	public void saveUser(@RequestBody User u) {
 		 uServ.updateUser(u);
+	}
+	
+	@RequestMapping(value="/delUser/{id}", method=RequestMethod.DELETE)
+	public void deleteById(@PathVariable int id) {
+		 uServ.deleteById(id);
 	}
 }
