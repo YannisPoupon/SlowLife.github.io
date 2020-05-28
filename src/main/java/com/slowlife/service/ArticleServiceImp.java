@@ -83,6 +83,21 @@ public class ArticleServiceImp implements ArticleService{
 		this.save(a);
 	}
 
+	@Override
+	public List<Article> findProdByVille(String ville) {
+		return adao.findProdByVille(ville);
+	}
+
+	@Override
+	public List<Article> findArtByVille(String ville) {
+		return adao.findArtByVille(ville);
+	}
+
+	@Override
+	public List<Article> findComByVille(String ville) {
+		return adao.findComByVille(ville);
+	}
+
 	
 
 	

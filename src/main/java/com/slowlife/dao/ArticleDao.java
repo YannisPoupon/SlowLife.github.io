@@ -23,6 +23,15 @@ public interface ArticleDao extends JpaRepository<Article, Integer>{
 	@Query("SELECT a FROM Article a WHERE a.nom = ?1 and a.artisant.ville = ?2")
 	public List<Article> findArtByNomAndVille(String nom,String ville);
 	
+	@Query("SELECT a FROM Article a WHERE a.producteur.ville = ?1")
+	public List<Article> findProdByVille(String ville);
+	
+	@Query("SELECT a FROM Article a WHERE a.commercant.ville = ?1")
+	public List<Article> findComByVille(String ville);
+	
+	@Query("SELECT a FROM Article a WHERE a.artisant.ville = ?1")
+	public List<Article> findArtByVille(String ville);
+	
 	public List<Article> findByProducteur(Producteur p);
 	public List<Article> findByArtisant(Artisant a);
 	public List<Article> findByCommercant(Commercant c);

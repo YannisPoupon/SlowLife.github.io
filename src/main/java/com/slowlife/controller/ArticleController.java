@@ -65,6 +65,21 @@ public class ArticleController {
 		return listArticles;
 	}
 	
+	
+	@RequestMapping(value="/findArticlesByVille/{ville}",method = RequestMethod.GET)
+	public List<Article> findProdByVille(@PathVariable String ville)  {
+		List<Article> listArticlesProd = aServ.findProdByVille(ville);
+		List<Article> listArticlesArt = aServ.findArtByVille(ville);
+		List<Article> listArticlesCom = aServ.findComByVille(ville);
+		List<Article> listArticles =  new ArrayList<Article>();
+		listArticles.addAll(listArticlesProd);
+		listArticles.addAll(listArticlesArt);
+		listArticles.addAll(listArticlesCom);
+		
+		
+		return listArticles;
+	}
+	
 
 	@RequestMapping(value="/getFruitsLegumEnum",method = RequestMethod.GET)
 	public List<String> getFruitsLegumEnum()  {
