@@ -12,11 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.slowlife.entity.Article;
-import com.slowlife.entity.Artisant;
-import com.slowlife.entity.Commercant;
 import com.slowlife.entity.Feedback;
-import com.slowlife.entity.Producteur;
 import com.slowlife.service.FeedbackService;
 
 @CrossOrigin(origins = "http://localhost:4200")

@@ -2,10 +2,7 @@ package com.slowlife.service;
 
 import java.util.List;
 
-import com.slowlife.entity.Artisant;
-import com.slowlife.entity.Commercant;
 import com.slowlife.entity.Feedback;
-import com.slowlife.entity.Producteur;
 
 public interface FeedbackService {
 

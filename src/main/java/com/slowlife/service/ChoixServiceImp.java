@@ -5,11 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.slowlife.dao.ArticleDao;
 import com.slowlife.dao.ChoixDao;
 import com.slowlife.entity.Choix;
 import com.slowlife.entity.Particulier;
-import com.slowlife.entity.User;
 
 @Service
 public class ChoixServiceImp implements ChoixService{

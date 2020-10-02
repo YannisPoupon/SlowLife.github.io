@@ -2,7 +2,6 @@ package com.slowlife.service;
 
 import java.util.List;
 
-import com.slowlife.entity.Choix;
 import com.slowlife.entity.User;
 
 public interface UserService {

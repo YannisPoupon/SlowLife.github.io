@@ -1,5 +1,6 @@
 package com.slowlife.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,12 @@ public class AnnonceServiceImp implements AnnonceService{
 	public List<Annonce> findByProducteur(Producteur p) {
 		// TODO Auto-generated method stub
 		return aDao.findByProducteur(p);
+	}
+
+	@Override
+	public List<Annonce> findComByNomAndVille(String ville, Date dateDebut, Date dateFin) {
+		// TODO Auto-generated method stub
+		return aDao.findComByNomAndVille(ville, dateDebut, dateFin);
 	}
 	
 	

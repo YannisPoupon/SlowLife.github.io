@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.slowlife.entity.Choix;
 import com.slowlife.entity.Particulier;
-import com.slowlife.entity.User;
 
 public interface ChoixService {
 	public Choix save(Choix choix);

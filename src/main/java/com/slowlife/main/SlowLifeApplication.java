@@ -19,8 +19,9 @@ public class SlowLifeApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SlowLifeApplication.class, args);
+		}
 		
 	
 	}
 
-}
+
